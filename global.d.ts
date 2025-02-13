@@ -1,4 +1,12 @@
+import { SVGProps } from "react";
+
 declare global {
+  // icon
+  type IconProps = SVGProps<SVGSVGElement> & {
+    width?: React.CSSProperties["width"];
+    height?: React.CSSProperties["height"];
+  };
+
   // folder
   type FolderName =
     | "프로그래밍"
