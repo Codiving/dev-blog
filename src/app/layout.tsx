@@ -1,3 +1,5 @@
+import { MainContents } from "@/components";
+import Header from "@/layouts/Header";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -27,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Header>
+          <span>Codiving&apos;s Book</span>
+        </Header>
+        <MainContents>{children}</MainContents>
       </body>
     </html>
   );
