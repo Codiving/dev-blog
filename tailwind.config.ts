@@ -1,5 +1,9 @@
 import type { Config } from "tailwindcss";
 
+const COMMON = {
+  progressbar: "2px",
+};
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,11 +13,18 @@ export default {
   ],
   theme: {
     extend: {
+      fontSize: {
+        xs: "0.875rem",
+      },
       width: {
         sidebar: "280px",
       },
       height: {
         header: "60px",
+        progressbar: COMMON.progressbar,
+      },
+      spacing: {
+        progressbar: COMMON.progressbar,
       },
       colors: {
         background: "var(--background)",
