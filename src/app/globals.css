@@ -137,9 +137,20 @@ table {
   box-sizing: border-box;
 }
 
+/* code */
+/* `code` 이러한 것들 */
+p code {
+  background-color: #ececec;
+  border-radius: .25rem;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .15rem .3rem;
+}
+
 pre {
   overflow-x: auto;
   padding: 1rem 0;
+  margin: 1rem 0;
 }
 
 /* 코드 라인 */
@@ -147,11 +158,11 @@ pre [data-line] {
   padding: 0.03rem 1rem;
 }
 
-code[data-line-numbers] {
+pre code[data-line-numbers] {
   counter-reset: line;
 }
 
-code[data-line-numbers]>[data-line]::before {
+pre code[data-line-numbers]>[data-line]::before {
   counter-increment: line;
   content: counter(line);
   display: inline-block;
@@ -161,15 +172,15 @@ code[data-line-numbers]>[data-line]::before {
   color: gray;
 }
 
-code[data-line-numbers-max-digits="2"]>[data-line]::before {
+pre code[data-line-numbers-max-digits="2"]>[data-line]::before {
   width: 1.25rem;
 }
 
-code[data-line-numbers-max-digits="3"]>[data-line]::before {
+pre code[data-line-numbers-max-digits="3"]>[data-line]::before {
   width: 1.75rem;
 }
 
-code[data-line-numbers-max-digits="4"]>[data-line]::before {
+pre code[data-line-numbers-max-digits="4"]>[data-line]::before {
   width: 2.25rem;
 }
 
@@ -181,4 +192,151 @@ code[data-line-numbers-max-digits="4"]>[data-line]::before {
 
 [data-highlighted-line-id="plus"] {
   background-color: rgba(0, 255, 0, 0.2);
+}
+
+/* heading */
+h1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  ;
+  font-weight: 900;
+  color: #26262b;
+  font-size: 2.625rem;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  ;
+  font-size: 2.1875rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+/* block */
+.info {
+  position: relative;
+  padding: 1rem;
+  background-color: rgb(59, 158, 239, 0.6);
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-wrap {
+  flex: 1
+}
+
+.info-icon {
+  flex-shrink: 0;
+  content: "";
+  display: inline-block;
+  background-image: url("/info.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 10px;
+}
+
+.info .title {
+  font-size: 1.2rem;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* font */
+@font-face {
+  font-family: 'RIDIBatang';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/fonts/code/RobotoMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+
+body {
+  font-family: 'RIDIBatang';
+}
+
+code,
+code * {
+  font-family: 'RobotoMono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
 }
