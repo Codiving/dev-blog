@@ -1,38 +1,54 @@
-import type { Paragraph, Parent, Root } from "mdast";
+import type { Paragraph, PhrasingContent, Root } from "mdast";
 import { visit } from "unist-util-visit";
 
-// 문장을 나눌 기호
-const SENTENCE_ENDINGS = /([.?])/;
+const SENTENCE_ENDINGS = /([.?])/g;
 
 /**
  * Markdown AST에서 모든 문장을 `SENTENCE_ENDINGS` 기준으로 나누어
- * 여러 개의 `paragraph` 태그로 변환하는 Remark 플러그인
+ * 새로운 `paragraph` 노드로 분리하는 Remark 플러그인
  */
 export function remarkSplitSentences() {
   return (tree: Root) => {
-    visit(tree, "paragraph", (node: Paragraph, index, parent?: Parent) => {
-      if (!parent?.children || typeof index !== "number") return;
+    visit(tree, "paragraph", (node: Paragraph, index, parent) => {
+      if (!parent || typeof index !== "number") return;
 
-      const textNode = node.children[0];
-      if (!textNode || textNode.type !== "text") return;
+      const newParagraphs: Paragraph[] = [];
+      let currentSentenceNodes: PhrasingContent[] = [];
 
-      // 문장을 마침표(.) 또는 물음표(?) 기준으로 나누기
-      const sentences = textNode.value
-        .split(SENTENCE_ENDINGS)
-        .reduce<string[]>((acc, cur, i, arr) => {
-          if (i % 2 === 0) {
-            acc.push(cur + (arr[i + 1] || "")); // 문장 + 기호 붙이기
+      node.children.forEach((child) => {
+        if (child.type === "text") {
+          const parts = child.value.split(SENTENCE_ENDINGS);
+          for (let i = 0; i < parts.length; i++) {
+            const part = parts[i];
+
+            if (!part) continue;
+
+            currentSentenceNodes.push({ type: "text", value: part });
+
+            // 문장 구분 기호( . 또는 ? )가 나오면 새로운 paragraph 시작
+            if (i % 2 === 1) {
+              newParagraphs.push({
+                type: "paragraph",
+                children: currentSentenceNodes,
+              });
+              currentSentenceNodes = [];
+            }
           }
-          return acc;
-        }, [])
-        .map((sentence) => sentence.trim())
-        .filter(Boolean);
+        } else {
+          // 코드 블록(`) 등은 기존 문장과 함께 유지
+          currentSentenceNodes.push(child);
+        }
+      });
 
-      const newParagraphs: Paragraph[] = sentences.map((sentence) => ({
-        type: "paragraph",
-        children: [{ type: "text", value: sentence }], // 기존 기호 유지
-      }));
+      // 마지막으로 남아있는 문장 추가
+      if (currentSentenceNodes.length > 0) {
+        newParagraphs.push({
+          type: "paragraph",
+          children: currentSentenceNodes,
+        });
+      }
 
+      // 기존 paragraph를 새로운 paragraph들로 대체
       parent.children.splice(index, 1, ...newParagraphs);
     });
   };
