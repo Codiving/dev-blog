@@ -1,8 +1,10 @@
 export { default as ArrowRightIcon } from "./ArrowRightIcon";
 export { default as CalendarIcon } from "./CalendarIcon";
+export { default as CollapseIcon } from "./CollapseIcon";
 export { default as CSSIcon } from "./CSSIcon";
 export { default as DarkIcon } from "./DarkIcon";
 export { default as ErrorIcon } from "./ErrorIcon";
+export { default as ExpandIcon } from "./ExpandIcon";
 export { default as GitHubIcon } from "./GitHubIcon";
 export { default as HTMLIcon } from "./HTMLIcon";
 export { default as JavaScriptIcon } from "./JavaScriptIcon";
