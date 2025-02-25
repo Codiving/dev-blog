@@ -12,7 +12,6 @@ interface MainContentsProps {
 
 export default function MainContents({ children, folders }: MainContentsProps) {
   const isWideView = useAppStore((state) => state.isWideView);
-  const onToggleWideView = useAppStore((state) => state.onToggleWideView);
 
   const onChangeFolders = useAppStore((state) => state.onChangeFolders);
 
@@ -26,10 +25,7 @@ export default function MainContents({ children, folders }: MainContentsProps) {
         <Sidebar isWideView={isWideView}>
           <FolderStructure folders={folders} />
         </Sidebar>
-        <Main>
-          <button onClick={onToggleWideView}>넓게 보기</button>
-          {children}
-        </Main>
+        <Main>{children}</Main>
       </div>
     </div>
   );
