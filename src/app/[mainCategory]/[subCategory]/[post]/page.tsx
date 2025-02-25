@@ -1,6 +1,7 @@
 import PostNavigation from "@/components/PostNavigation";
+import PostViewModeToggle from "@/components/PostViewModeToggle";
 import { Heading } from "@/hooks/useContentHeadings";
-import { fetchRepoFileTree } from "@/libs/fetchPosts";
+import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
 
 interface PageProps {
   params: Promise<{ mainCategory: string; subCategory: string; post: string }>;
@@ -30,13 +31,18 @@ export async function generateStaticParams() {
 export default async function Page({ params }: PageProps) {
   const { mainCategory, subCategory, post } = await params;
 
+  const result = await getPostByFileName("");
+
   const headings: Heading[] = [];
 
   console.log(mainCategory, subCategory, post);
 
   return (
     <div className="flex">
-      <div className="w-full bg-red-100">1</div>
+      <div className="flex flex-col">
+        <PostViewModeToggle />
+        <div className="w-full">{result}</div>
+      </div>
       <PostNavigation headings={headings} />
     </div>
   );
