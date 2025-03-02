@@ -18,7 +18,7 @@ export default function PostViewModeToggle() {
         ) : (
           <ExpandIcon width={17} height={17} />
         )}
-        {isWideView ? <span>넓게보기</span> : <span>원래대로</span>}
+        {isWideView ? <span>원래대로</span> : <span>넓게보기</span>}
       </div>
     </div>
   );
