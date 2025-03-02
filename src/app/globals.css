@@ -237,6 +237,10 @@ span {
   color: #374151
 }
 
+li {
+  color: #374151
+}
+
 /* block */
 .info {
   position: relative;
