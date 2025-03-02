@@ -1,8 +1,15 @@
+import { compileMDX } from "next-mdx-remote/rsc";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import { remarkCustomBlocks } from "./remarkCustomBlocks";
+import { remarkSplitSentences } from "./remarkSplitSentences";
+
 interface RepoFileTree {
   tree: { path: string }[];
 }
 
 const REPOSITORY_URL = `https://api.github.com/repos/${process.env.USER_NAME}/${process.env.REPOSITORY_NAME}/git/trees/${process.env.BRANCH_NAME}?recursive=1`;
+const POST_RAW_DATA_URL = `https://raw.githubusercontent.com/${process.env.USER_NAME}/${process.env.REPOSITORY_NAME}/${process.env.BRANCH_NAME}`;
 
 const FOLDER_ORDER: FolderName[] = ["회고록", "프로그래밍", "에러"];
 
@@ -69,10 +76,13 @@ export async function buildFolderStructure(): Promise<Folder[]> {
 
       // 마지막 부모 폴더인 경우, folderName & children 제거 후 file 정보만 남김
       if (index === parts.length - 1) {
+        const splitedPath = path.split("/");
+        splitedPath.pop(); // .mdx 제거
+
         delete existingFolder.folderName;
         delete existingFolder.children;
         existingFolder.fileName = fileName;
-        existingFolder.path = path;
+        existingFolder.path = splitedPath.join("/");
       } else {
         currentLevel = existingFolder.children!;
       }
@@ -88,4 +98,36 @@ export async function buildFolderStructure(): Promise<Folder[]> {
     (a, b) =>
       FOLDER_ORDER.indexOf(a.folderName!) - FOLDER_ORDER.indexOf(b.folderName!)
   );
+}
+
+export async function getPostByFileName(fileName: string) {
+  // const res = await fetch("http://localhost:3000/test.mdx");
+  const res = await fetch(`${POST_RAW_DATA_URL}/${fileName}`);
+  const source = await res.text();
+
+  if (!source || source === "404: Not Found") {
+    return null;
+  }
+
+  const { content } = await compileMDX<{ title: string }>({
+    source,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        remarkPlugins: [remarkCustomBlocks, remarkSplitSentences],
+        rehypePlugins: [
+          [
+            rehypePrettyCode, // code highlight
+            {
+              theme: "github-dark",
+              keepBackground: true,
+            },
+          ],
+          rehypeSlug, // heading 태그 id 부여
+        ],
+      },
+    },
+  });
+
+  return <>{content}</>;
 }

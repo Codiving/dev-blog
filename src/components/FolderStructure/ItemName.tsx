@@ -15,6 +15,7 @@ import {
   TypeScriptIcon,
 } from "@/icons";
 import clsx from "clsx";
+import { useRouter } from "next/navigation";
 
 type FolderIcon = {
   [key in FolderName]: (props: IconProps) => React.ReactNode;
@@ -31,6 +32,7 @@ const FOLDER_ICON: FolderIcon = {
   TypeScript: (props: IconProps) => <TypeScriptIcon {...props} />,
   Next: (props: IconProps) => <NextJSIcon {...props} />,
   React: (props: IconProps) => <ReactIcon {...props} />,
+  GraphQL: (props: IconProps) => <ReactIcon {...props} />,
   "2025": (props: IconProps) => <CalendarIcon {...props} />,
 };
 
@@ -46,6 +48,7 @@ interface ItemNameProps {
   isOpen: boolean;
   folderName?: FolderName;
   fileName?: string;
+  path?: string;
 }
 
 export default function ItemName({
@@ -54,11 +57,29 @@ export default function ItemName({
   isOpen,
   folderName,
   fileName,
+  path,
 }: ItemNameProps) {
+  const router = useRouter();
   return (
-    <span
-      className="whitespace-pre flex items-center gap-1 px-0 py-1.5 text-[0.975rem] cursor-pointer"
-      onClick={onToggleOpen}
+    <p
+      className={clsx(
+        "flex items-center gap-1 px-0 text-[0.975rem] cursor-pointer",
+        {
+          ["py-[4px]"]: !!folderName,
+        }
+      )}
+      // className="whitespace-pre flex items-center gap-1 px-0 py-1.5 text-[0.975rem] cursor-pointer"
+      onClick={() => {
+        if (folderName) {
+          onToggleOpen();
+        } else {
+          if (path) {
+            const splitedPath = path.split("/");
+            splitedPath.pop(); // .mdx 제거
+            router.push(splitedPath.join("/"));
+          }
+        }
+      }}
     >
       <button
         className={clsx(
@@ -74,6 +95,6 @@ export default function ItemName({
 
       {folderName && FOLDER_ICON[folderName](FOLDER_ICON_STYLE)}
       {folderName ?? fileName?.replace(".mdx", "")}
-    </span>
+    </p>
   );
 }

@@ -9,7 +9,7 @@ interface FolderFileItemProps {
 }
 
 export default function FolderFileItem({
-  folder: { folderName, fileName, children = [] },
+  folder: { folderName, fileName, children = [], path },
 }: FolderFileItemProps) {
   const isFile = Boolean(fileName);
 
@@ -25,6 +25,7 @@ export default function FolderFileItem({
         isOpen={isOpen}
         folderName={folderName}
         fileName={fileName}
+        path={path}
       />
 
       <AnimatePresence>
