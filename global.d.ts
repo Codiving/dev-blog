@@ -19,6 +19,7 @@ declare global {
     | "TypeScript"
     | "Next"
     | "React"
+    | "GraphQL"
     | "2025";
 
   interface Folder {
