@@ -8,7 +8,7 @@ interface FolderStructureProps {
 
 export default function FolderStructure({ folders }: FolderStructureProps) {
   return (
-    <ul>
+    <ul id="folder_structure" className="sticky top-[100px]">
       {folders.map((folder, index) => (
         <FolderFileItem folder={folder} key={index} />
       ))}

@@ -85,7 +85,6 @@ audio,
 video {
   margin: 0;
   padding: 0;
-  border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -351,4 +350,8 @@ code * {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.2;
+}
+
+#folder_structure li span {
+  line-height: 1px;
 }

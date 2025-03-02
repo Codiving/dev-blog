@@ -21,7 +21,7 @@ export default function MainContents({ children, folders }: MainContentsProps) {
 
   return (
     <div className="flex justify-center">
-      <div className="flex w-full mx-auto max-w-screen-xl py-10 px-4 bg-slate-500">
+      <div className="flex w-full mx-auto max-w-screen-xl py-10 px-4">
         <Sidebar isWideView={isWideView}>
           <FolderStructure folders={folders} />
         </Sidebar>

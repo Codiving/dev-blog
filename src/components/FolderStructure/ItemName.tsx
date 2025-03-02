@@ -57,7 +57,7 @@ export default function ItemName({
 }: ItemNameProps) {
   return (
     <span
-      className="whitespace-pre flex items-center gap-1 px-0 py-1 text-xs cursor-pointer"
+      className="whitespace-pre flex items-center gap-1 px-0 py-1.5 text-[0.975rem] cursor-pointer"
       onClick={onToggleOpen}
     >
       <button
