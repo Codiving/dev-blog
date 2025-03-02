@@ -41,7 +41,7 @@ export default function Comments() {
 
     setTimeout(() => {
       ref.current?.appendChild(scriptElement);
-    }, 0);
+    }, 300);
   }, []);
 
   if (!mounted) return null;
