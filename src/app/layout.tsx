@@ -1,4 +1,5 @@
 import { MainContents } from "@/components";
+import LogoText from "@/components/LogoText";
 import Header from "@/layouts/Header";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
@@ -33,7 +34,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header>
-          <span>Codiving&apos;s Book</span>
+          <LogoText />
         </Header>
         <MainContents folders={folders}>{children}</MainContents>
       </body>
