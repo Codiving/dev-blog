@@ -1,7 +1,9 @@
 import type { Config } from "tailwindcss";
 
-const COMMON = {
-  progressbar: "2px",
+export const COMMON = {
+  progressbar: 2,
+  header: 60,
+  sidebar: 280,
 };
 
 export default {
@@ -12,14 +14,14 @@ export default {
         xs: "0.875rem",
       },
       width: {
-        sidebar: "280px",
+        sidebar: `${COMMON.sidebar}px`,
       },
       height: {
-        header: "60px",
-        progressbar: COMMON.progressbar,
+        header: `${COMMON.header}px`,
+        progressbar: `${COMMON.progressbar}px`,
       },
       spacing: {
-        progressbar: COMMON.progressbar,
+        progressbar: `${COMMON.progressbar}px`,
       },
       colors: {
         background: "var(--background)",
