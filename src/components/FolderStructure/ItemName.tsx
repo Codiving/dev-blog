@@ -74,9 +74,7 @@ export default function ItemName({
           onToggleOpen();
         } else {
           if (path) {
-            const splitedPath = path.split("/");
-            splitedPath.pop(); // .mdx 제거
-            router.push(splitedPath.join("/"));
+            router.push(`/${path}`);
           }
         }
       }}
