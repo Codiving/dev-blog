@@ -8,7 +8,7 @@ export default function Sidebar({ isWideView, children }: SidebarProps) {
   return (
     <div
       className={clsx(
-        `transition-all duration-300 ease-in-out p-4`,
+        `shrink-0 transition-all duration-300 ease-in-out p-4`,
         isWideView ? "w-0 opacity-0" : "w-sidebar opacity-100"
       )}
     >
