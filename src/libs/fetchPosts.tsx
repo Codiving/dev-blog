@@ -2,7 +2,6 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { remarkCustomBlocks } from "./remarkCustomBlocks";
-import { remarkSplitSentences } from "./remarkSplitSentences";
 
 interface RepoFileTree {
   tree: { path: string }[];
@@ -109,12 +108,17 @@ export async function getPostByFileName(fileName: string) {
     return null;
   }
 
-  const { content } = await compileMDX<{ title: string }>({
+  const { frontmatter, content } = await compileMDX<{
+    title: string;
+    description: string;
+    keywords: string[];
+    thumbnail: string;
+  }>({
     source,
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        remarkPlugins: [remarkCustomBlocks, remarkSplitSentences],
+        remarkPlugins: [remarkCustomBlocks],
         rehypePlugins: [
           [
             rehypePrettyCode, // code highlight
@@ -129,5 +133,8 @@ export async function getPostByFileName(fileName: string) {
     },
   });
 
-  return <>{content}</>;
+  return {
+    content,
+    frontmatter,
+  };
 }
