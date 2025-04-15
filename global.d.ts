@@ -15,6 +15,7 @@ declare global {
     | "GitHub"
     | "HTML"
     | "CSS"
+    | "Jest"
     | "JavaScript"
     | "TypeScript"
     | "Next"

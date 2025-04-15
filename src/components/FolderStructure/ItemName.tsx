@@ -29,6 +29,7 @@ const FOLDER_ICON: FolderIcon = {
   HTML: (props: IconProps) => <HTMLIcon {...props} />,
   CSS: (props: IconProps) => <CSSIcon {...props} />,
   JavaScript: (props: IconProps) => <JavaScriptIcon {...props} />,
+  Jest: (props: IconProps) => <JavaScriptIcon {...props} />,
   TypeScript: (props: IconProps) => <TypeScriptIcon {...props} />,
   Next: (props: IconProps) => <NextJSIcon {...props} />,
   React: (props: IconProps) => <ReactIcon {...props} />,
