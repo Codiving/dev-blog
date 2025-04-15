@@ -2,6 +2,7 @@ import Comments from "@/components/Comments";
 import PostNavigation from "@/components/PostNavigation";
 import PostViewModeToggle from "@/components/PostViewModeToggle";
 import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
+import { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{ mainCategory: string; subCategory: string; post: string }>;
@@ -28,6 +29,55 @@ export async function generateStaticParams() {
   return folders;
 }
 
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { mainCategory, subCategory, post } = await params;
+
+  const result = await getPostByFileName(
+    decodeURIComponent(
+      [mainCategory, subCategory, post, `${post}.mdx`].join("/")
+    )
+  );
+
+  if (!result) {
+    throw new Error("게시글 없음");
+  }
+
+  const { frontmatter } = result;
+  const { title, description, keywords, thumbnail } = frontmatter;
+
+  const url = `https://raw.githubusercontent.com/${process.env.USER_NAME}/${
+    process.env.REPOSITORY_NAME
+  }/${process.env.BRANCH_NAME}/${decodeURIComponent(
+    [mainCategory, subCategory, post].join("/") + "/" + thumbnail
+  )}`;
+
+  const metadata: Metadata = {
+    title,
+    description,
+    applicationName: "Codiving's book",
+    authors: [{ name: "Codiving" }],
+    keywords,
+    openGraph: {
+      title,
+      description,
+      url: `https://dev-blog-amber.vercel.app/${decodeURIComponent(
+        [mainCategory, subCategory, post].join("/")
+      )}`,
+      images: [
+        {
+          url,
+          width: 500,
+          height: 350,
+        },
+      ],
+    },
+  };
+
+  return metadata;
+}
+
 export default async function Page({ params }: PageProps) {
   const { mainCategory, subCategory, post } = await params;
 
@@ -37,12 +87,16 @@ export default async function Page({ params }: PageProps) {
     )
   );
 
+  if (!result) return null;
+
+  const { content } = result;
+
   return (
     <div className="flex gap-6">
       <div className="flex flex-col">
         <PostViewModeToggle />
         <div className="w-full pb-10 mb-10 border-b border-[#d0d5dd]" id="post">
-          {result}
+          {content}
         </div>
         <Comments />
       </div>
