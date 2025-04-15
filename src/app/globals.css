@@ -355,3 +355,7 @@ code * {
 #folder_structure li span {
   line-height: 1px;
 }
+
+strong {
+  font-weight: bold;
+}
