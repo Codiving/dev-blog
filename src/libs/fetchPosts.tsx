@@ -1,3 +1,4 @@
+import CustomLink from "@/components/CustomLink";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -115,6 +116,9 @@ export async function getPostByFileName(fileName: string) {
     thumbnail: string;
   }>({
     source,
+    components: {
+      a: CustomLink,
+    },
     options: {
       parseFrontmatter: true,
       mdxOptions: {
