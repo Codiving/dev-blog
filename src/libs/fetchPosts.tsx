@@ -1,4 +1,4 @@
-import CustomLink from "@/components/CustomLink";
+import { Li, Link, Ul } from "@/components";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -117,7 +117,9 @@ export async function getPostByFileName(fileName: string) {
   }>({
     source,
     components: {
-      a: CustomLink,
+      a: Link,
+      ul: Ul,
+      li: Li,
     },
     options: {
       parseFrontmatter: true,
