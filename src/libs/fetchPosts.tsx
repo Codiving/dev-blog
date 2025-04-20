@@ -1,5 +1,6 @@
-import { Li, Link, Ul } from "@/components";
+import { Figcaption, Li, Link, Ul } from "@/components";
 import { compileMDX } from "next-mdx-remote/rsc";
+import Image from "next/image";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import { remarkCustomBlocks } from "./remarkCustomBlocks";
@@ -120,6 +121,8 @@ export async function getPostByFileName(fileName: string) {
       a: Link,
       ul: Ul,
       li: Li,
+      Image,
+      figcaption: Figcaption,
     },
     options: {
       parseFrontmatter: true,
