@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 export const COMMON = {
   progressbar: 2,
   header: 60,
-  sidebar: 280,
+  sidebar: 300,
 };
 
 export default {
