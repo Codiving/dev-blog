@@ -62,9 +62,10 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: `https://dev-blog-amber.vercel.app/${decodeURIComponent(
+      url: `https://www.tech.codiving.kr/${decodeURIComponent(
         [mainCategory, subCategory, post].join("/")
       )}`,
+      type: "article",
       images: [
         {
           url,
