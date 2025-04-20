@@ -5,6 +5,8 @@ import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
 import "./globals.css";
 
+export const revalidate = 86400;
+
 const sortOrder: Record<string, string[]> = {
   "": ["회고록", "프로그래밍", "에러"],
   회고록: ["2025"],

@@ -8,6 +8,8 @@ interface PageProps {
   params: Promise<{ mainCategory: string; subCategory: string; post: string }>;
 }
 
+export const revalidate = 86400;
+
 /**
  * Q. 왜 2번쨰 index는 사용하지 않나요?
  * GitHub Repo 폴더 구조는 아래처럼 되어 있음
