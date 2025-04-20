@@ -49,6 +49,22 @@ function sortFolders(data: Folder[], parentFolderName = ""): Folder[] {
 export const metadata: Metadata = {
   title: "Codiving's Books",
   description: "Codiving의 개발 블로그",
+  applicationName: "Codiving's book",
+  authors: [{ name: "Codiving" }],
+  keywords: ["Codiving", "Codiving 개발 블로그"],
+  openGraph: {
+    title: "Codiving's Books",
+    description: "Codiving의 개발 블로그",
+    url: "https://www.tech.codiving.kr",
+    type: "article",
+    images: [
+      {
+        url: "/thumb.png",
+        width: 500,
+        height: 350,
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({
