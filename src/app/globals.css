@@ -179,7 +179,7 @@ div[data-rehype-pretty-code-title] {
   padding: 10px 14px 4px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  background-color: #6c757d;
+  background-color: #4f5356;
   color: white;
   cursor: pointer;
   margin-top: 8px;
@@ -196,7 +196,7 @@ figure[data-rehype-pretty-code-figure]>pre+figcaption[data-rehype-pretty-code-ca
   text-align: center;
   padding: 10px 14px 4px;
   border-bottom-left-radius: 8px;
-  background-color: #6c757d;
+  background-color: #4f5356;
   color: white;
   cursor: pointer;
   user-select: none;
