@@ -22,7 +22,7 @@ export default function MainContents({ children, folders }: MainContentsProps) {
   return (
     <div className="flex justify-center">
       <div className="flex w-full mx-auto max-w-screen-xl py-10 px-4">
-        <Sidebar isWideView={isWideView}>
+        <Sidebar isWideView={isWideView} className={"hidden lg:block"}>
           <FolderStructure folders={folders} />
         </Sidebar>
         <Main>{children}</Main>
