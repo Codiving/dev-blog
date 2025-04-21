@@ -249,7 +249,7 @@ pre code[data-line-numbers-max-digits="4"]>[data-line]::before {
 }
 
 /* heading */
-.post h1 {
+#post h1 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   font-weight: 900;
@@ -257,7 +257,7 @@ pre code[data-line-numbers-max-digits="4"]>[data-line]::before {
   color: #374151
 }
 
-.post h2 {
+#post h2 {
   margin-top: 4rem;
   margin-bottom: 1rem;
   font-size: 2.1875rem;
@@ -265,7 +265,7 @@ pre code[data-line-numbers-max-digits="4"]>[data-line]::before {
   color: #374151
 }
 
-.post h3 {
+#post h3 {
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
