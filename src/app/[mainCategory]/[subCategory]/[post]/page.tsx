@@ -24,8 +24,8 @@ export async function generateStaticParams() {
   const folders = posts.tree
     .filter((post) => post.path.endsWith(".mdx"))
     .map(({ path }) => {
-      const [mainCategory, subCategory, , post] = path.split("/");
-      return { mainCategory, subCategory, post: post.replace(".mdx", "") };
+      const [mainCategory, subCategory, post] = path.split("/");
+      return { mainCategory, subCategory, post };
     });
 
   return folders;
@@ -37,9 +37,7 @@ export async function generateMetadata({
   const { mainCategory, subCategory, post } = await params;
 
   const result = await getPostByFileName(
-    decodeURIComponent(
-      [mainCategory, subCategory, post, `${post}.mdx`].join("/")
-    )
+    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/"))
   );
 
   if (!result) {
@@ -85,9 +83,7 @@ export default async function Page({ params }: PageProps) {
   const { mainCategory, subCategory, post } = await params;
 
   const result = await getPostByFileName(
-    decodeURIComponent(
-      [mainCategory, subCategory, post, `${post}.mdx`].join("/")
-    )
+    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/"))
   );
 
   if (!result) return null;

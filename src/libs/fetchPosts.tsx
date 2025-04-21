@@ -82,7 +82,7 @@ export async function buildFolderStructure(): Promise<Folder[]> {
 
         delete existingFolder.folderName;
         delete existingFolder.children;
-        existingFolder.fileName = fileName;
+        existingFolder.fileName = part;
         existingFolder.path = splitedPath.join("/");
       } else {
         currentLevel = existingFolder.children!;
