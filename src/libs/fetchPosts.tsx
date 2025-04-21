@@ -115,6 +115,8 @@ export async function getPostByFileName(fileName: string) {
     description: string;
     keywords: string[];
     thumbnail: string;
+    summary: string;
+    date: string;
   }>({
     source,
     components: {
