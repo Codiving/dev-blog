@@ -166,6 +166,8 @@ pre {
 
 figure[data-rehype-pretty-code-figure] {
   position: relative;
+  overflow: auto;
+  max-width: calc(100dvw - 64px);
 }
 
 figure[data-rehype-pretty-code-figure]>pre {
