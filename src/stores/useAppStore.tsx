@@ -11,7 +11,7 @@ interface AppStore {
 }
 
 const useAppStore = create<AppStore>((set, get) => ({
-  isWideView: false,
+  isWideView: true,
   onToggleWideView: () => set({ isWideView: !get().isWideView }),
 
   folders: [],
