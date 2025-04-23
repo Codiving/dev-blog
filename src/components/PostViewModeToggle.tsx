@@ -22,7 +22,7 @@ export default function PostViewModeToggle() {
   }, [isWideView, onToggleWideView]);
 
   return (
-    <div className="inline-flex justify-end">
+    <div className="invisible lg:visible inline-flex justify-end">
       <div
         className="inline-flex gap-2 w-fit cursor-pointer"
         onClick={onToggleWideView}
@@ -32,7 +32,7 @@ export default function PostViewModeToggle() {
         ) : (
           <ExpandIcon width={17} height={17} />
         )}
-        {isWideView ? <span>원래대로</span> : <span>넓게보기</span>}
+        {isWideView ? <span>카테고리</span> : <span>넓게보기</span>}
       </div>
     </div>
   );
