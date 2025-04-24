@@ -3,17 +3,11 @@
 import { create } from "zustand";
 
 interface AppStore {
-  isWideView: boolean;
-  onToggleWideView: () => void;
-
   folders: Folder[];
   onChangeFolders: (folders: Folder[]) => void;
 }
 
-const useAppStore = create<AppStore>((set, get) => ({
-  isWideView: true,
-  onToggleWideView: () => set({ isWideView: !get().isWideView }),
-
+const useAppStore = create<AppStore>((set) => ({
   folders: [],
   onChangeFolders: (folders) => set({ folders }),
 }));

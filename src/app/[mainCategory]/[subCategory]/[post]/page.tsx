@@ -1,6 +1,5 @@
 import Comments from "@/components/Comments";
 import PostNavigation from "@/components/PostNavigation";
-import PostViewModeToggle from "@/components/PostViewModeToggle";
 import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
 import { Metadata } from "next";
 
@@ -93,7 +92,6 @@ export default async function Page({ params }: PageProps) {
   return (
     <div className="flex gap-6">
       <div className="flex flex-col">
-        <PostViewModeToggle />
         <div className="w-full pb-10 mb-10 border-b border-[#d0d5dd]" id="post">
           {content}
         </div>
