@@ -12,13 +12,13 @@ export default function PostNavigation() {
 
   return (
     <nav className="w-56 hidden shrink-0 lg:block">
-      <ul className="sticky top-[100px] flex flex-col gap-[16px]">
+      <ul className="sticky top-[100px] flex flex-col gap-[12px]">
         <li>
           <p className="text-[1.2rem] font-bold text-[#6b7280]">목차</p>
         </li>
         {headings.map(({ id }, key) => (
           <li
-            className={clsx("cursor-pointer text-[#6b7280]", {
+            className={clsx("cursor-pointer text-[#6b7280] leading-[1.2]", {
               "font-bold": head === id,
             })}
             key={key}
