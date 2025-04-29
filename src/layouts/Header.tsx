@@ -1,4 +1,4 @@
-import { ProgressBar } from "@/components";
+import Hamburger from "@/components/Hamburger";
 
 interface HeaderProps {
   readonly children: React.ReactNode;
@@ -6,9 +6,9 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <header className="px-[1.5rem] h-header mt-progressbar w-full sticky top-progressbar bg-gray-500 z-10 flex flex-col justify-center">
-      <ProgressBar />
-      <div>{children}</div>
+    <header className="px-[1.5rem] h-header w-full sticky bg-gray-500 z-10 top-0 flex gap-4 items-center">
+      <Hamburger />
+      {children}
     </header>
   );
 }

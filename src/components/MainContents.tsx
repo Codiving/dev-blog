@@ -17,10 +17,8 @@ export default function MainContents({ children, folders }: MainContentsProps) {
   }, [folders, onChangeFolders]);
 
   return (
-    <div className="flex justify-center">
-      <div className="flex w-full mx-auto max-w-screen-xl py-10 px-4">
-        <Main>{children}</Main>
-      </div>
+    <div className="flex flex-col w-full py-10 px-4">
+      <Main>{children}</Main>
     </div>
   );
 }

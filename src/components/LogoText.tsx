@@ -6,7 +6,7 @@ export default function LogoText() {
 
   return (
     <span
-      className="cursor-pointer text-white font-bold text-[1.4rem]"
+      className="cursor-pointer text-white font-bold text-[1.4rem] mt-[4px]"
       onClick={() => {
         router.push("/");
       }}

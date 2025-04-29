@@ -1,5 +1,6 @@
 import { MainContents } from "@/components";
 import LogoText from "@/components/LogoText";
+import { Sidebar } from "@/layouts";
 import Header from "@/layouts/Header";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
@@ -82,7 +83,10 @@ export default async function RootLayout({
         <Header>
           <LogoText />
         </Header>
-        <MainContents folders={folders}>{children}</MainContents>
+        <section id="main-section" className="flex">
+          <Sidebar />
+          <MainContents folders={folders}>{children}</MainContents>
+        </section>
       </body>
     </html>
   );

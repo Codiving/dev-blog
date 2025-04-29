@@ -107,6 +107,7 @@ section {
 
 body {
   line-height: 1;
+  /* overflow: hidden; */
 }
 
 ol,
@@ -192,7 +193,7 @@ div[data-rehype-pretty-code-title] {
 /* code copy만 있는 경우 */
 figure[data-rehype-pretty-code-figure]>pre+figcaption[data-rehype-pretty-code-caption] {
   position: absolute;
-  top: 0px;
+  top: 8px;
   right: 0px;
   width: 80px;
   text-align: center;
@@ -206,7 +207,7 @@ figure[data-rehype-pretty-code-figure]>pre+figcaption[data-rehype-pretty-code-ca
 
 /* code title, copy 모두 있는 경우 */
 figure[data-rehype-pretty-code-figure]>div[data-rehype-pretty-code-title]+pre+figcaption[data-rehype-pretty-code-caption] {
-  top: 30px;
+  top: 38px;
 }
 
 /* 코드 라인 */
@@ -417,4 +418,38 @@ strong {
 p.summary {
   font-size: 14px;
   line-height: 1.5;
+}
+
+#main-section {
+  /* min-height: calc(100dvh - 60px); */
+  /* overflow-y: auto; */
+}
+
+.hamburger-container {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger {
+  height: 5px;
+  width: 30px;
+  background-color: #000;
+  border-radius: 20% / 90%;
+  transition: 1s;
+  position: relative;
+}
+
+.hamburger-container.active li:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger-container.active li:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.hamburger-container.active li:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
