@@ -1,16 +1,16 @@
 "use client";
+import { useAppStore } from "@/stores";
 import clsx from "clsx";
-import { useState } from "react";
 
 export default function Hamburger() {
-  const [open, setOpen] = useState(false);
+  const { open, onChangeOpen } = useAppStore();
   return (
     <ul
       className={clsx("hamburger-container", {
         active: open,
       })}
       onClick={() => {
-        setOpen((prev) => !prev);
+        onChangeOpen(!open);
       }}
     >
       <li className="hamburger" />

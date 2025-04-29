@@ -438,7 +438,7 @@ p.summary {
   width: 30px;
   background-color: #000;
   border-radius: 20% / 90%;
-  transition: 1s;
+  transition: 0.5s;
   position: relative;
 }
 
