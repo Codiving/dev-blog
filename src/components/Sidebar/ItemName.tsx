@@ -63,7 +63,9 @@ export default function ItemName({
   depth,
 }: ItemNameProps) {
   const router = useRouter();
-  const filename = decodeURIComponent(usePathname().split("/").at(-1) || "");
+  const [, ...pathname] = decodeURIComponent(usePathname()).split("/");
+  const filename =
+    pathname.length === 3 ? decodeURIComponent(pathname.at(-1) || "") : null;
   const isSelected = filename === fileName;
 
   const name = folderName ?? fileName?.replace(".mdx", "");

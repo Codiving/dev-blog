@@ -18,7 +18,9 @@ export default function FolderFileItem({
   const [, ...pathname] = decodeURIComponent(usePathname()).split("/");
 
   const [isOpen, setIsOpen] = useState(
-    pathname.includes(folderName as string) || pathname.includes(fileName)
+    pathname.length === 3
+      ? pathname.includes(folderName as string) || pathname.includes(fileName)
+      : false
   );
 
   const onToggleOpen = () => setIsOpen((prev) => !prev);
