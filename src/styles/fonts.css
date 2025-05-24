@@ -143,6 +143,7 @@
     url(/fonts/pretendard/Pretendard-Thin.woff) format("woff");
 }
 
+.robotoMono,
 .robotoMono * {
   font-family: "RobotoMono", sans-serif;
 }
