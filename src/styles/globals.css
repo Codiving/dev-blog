@@ -3,7 +3,7 @@
 
 @theme {
   --nav-height: 64px;
-  --layout-padding: 0px 32px;
+  --layout-padding: 32px;
 
   --font-color-primary: #001e2b;
 
@@ -29,7 +29,7 @@
   top: 0;
   grid-area: header;
   height: var(--nav-height);
-  padding: var(--layout-padding);
+  padding: 0px var(--layout-padding);
   border-bottom: 1px solid lightgray;
   display: flex;
   align-items: center;
