@@ -76,8 +76,6 @@ export default async function RootLayout({
 }>) {
   const folders = sortFolders(await buildFolderStructure());
 
-  console.log("folders : ", folders);
-
   return (
     <html lang="ko">
       <body>
@@ -97,15 +95,29 @@ export default async function RootLayout({
           <div id="sidenav">
             <nav>
               <Sidebar
-                folders={[...folders, ...folders, ...folders, ...folders]}
+                folders={[
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                  ...folders,
+                ]}
               />
             </nav>
           </div>
-          <div id="contents"></div>
+          <div id="contents" className="py-16 px-40 mx-auto">
+            <main style={{ maxWidth: 1200 }}>{children}</main>
+            {/* <div>{children}</div> */}
+          </div>
         </div>
-        {/* <Header>
-          <LogoText />
-        </Header>
+        {/*
         <section id="main-section" className="flex">
           <Sidebar />
           <MainContents folders={folders}>{children}</MainContents>
