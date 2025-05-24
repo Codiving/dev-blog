@@ -1,10 +1,9 @@
-import { MainContents } from "@/components";
-import LogoText from "@/components/LogoText";
-import { Sidebar } from "@/layouts";
-import Header from "@/layouts/Header";
+import Sidebar from "@/components/Sidebar";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
-import "./globals.css";
+import Link from "next/link";
+import "../styles/fonts.css";
+import "../styles/globals.css";
 
 export const revalidate = 86400;
 
@@ -77,16 +76,38 @@ export default async function RootLayout({
 }>) {
   const folders = sortFolders(await buildFolderStructure());
 
+  console.log("folders : ", folders);
+
   return (
     <html lang="ko">
       <body>
-        <Header>
+        <div id="container">
+          <header id="header">
+            <Link href="/">
+              <div className="flex items-center gap-[8px]">
+                <span className="w-[40px] h-[40px] leading-[40px] text-center text-[24px] bg-black text-white rounded-[12px]">
+                  C
+                </span>
+                <span className="text-[18px] font-bold italic">Codiving</span>
+              </div>
+            </Link>
+          </header>
+          <div id="sidenav">
+            <nav>
+              <Sidebar
+                folders={[...folders, ...folders, ...folders, ...folders]}
+              />
+            </nav>
+          </div>
+          <div id="contents"></div>
+        </div>
+        {/* <Header>
           <LogoText />
         </Header>
         <section id="main-section" className="flex">
           <Sidebar />
           <MainContents folders={folders}>{children}</MainContents>
-        </section>
+        </section> */}
       </body>
     </html>
   );

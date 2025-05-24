@@ -50,6 +50,7 @@ interface ItemNameProps {
   folderName?: FolderName;
   fileName?: string;
   path?: string;
+  depth: number;
 }
 
 export default function ItemName({
@@ -59,17 +60,23 @@ export default function ItemName({
   folderName,
   fileName,
   path,
+  depth,
 }: ItemNameProps) {
   const router = useRouter();
+
   return (
-    <p
-      className={clsx(
-        "flex items-center gap-1 px-0 text-[0.975rem] cursor-pointer",
-        {
-          ["py-[4px]"]: !!folderName,
-        }
-      )}
-      // className="whitespace-pre flex items-center gap-1 px-0 py-1.5 text-[0.975rem] cursor-pointer"
+    <div
+      className="flex items-center justify-between"
+      style={{
+        paddingLeft: depth * 10,
+        borderLeft: depth
+          ? "1px solid var(--sidebar-border-default)"
+          : undefined,
+        letterSpacing: depth ? undefined : 1.1,
+        paddingTop: depth && !isFile ? 4 : 2,
+        paddingBottom: depth && !isFile ? 4 : 2,
+        cursor: isFile ? undefined : "pointer",
+      }}
       onClick={() => {
         if (folderName) {
           onToggleOpen();
@@ -80,20 +87,23 @@ export default function ItemName({
         }
       }}
     >
+      <div className="flex items-center gap-[4px]">
+        {folderName && FOLDER_ICON[folderName](FOLDER_ICON_STYLE)}
+        <p
+          className="flex items-center mt-[2px]"
+          {...(folderName ? { "data-folder": true } : { "data-file": true })}
+        >
+          {folderName ?? fileName?.replace(".mdx", "")}
+        </p>
+      </div>
       <button
-        className={clsx(
-          "p-1 bg-transparent border-none cursor-pointer flex items-center transition-transform duration-300 ease-in-out",
-          {
-            invisible: isFile,
-            "rotate-90": isOpen,
-          }
-        )}
+        className={clsx("transition-transform duration-300 ease-in-out", {
+          hidden: isFile,
+          "rotate-90": isOpen,
+        })}
       >
         <ArrowRightIcon width={12} height={12} color="#666" />
       </button>
-
-      {folderName && FOLDER_ICON[folderName](FOLDER_ICON_STYLE)}
-      {folderName ?? fileName?.replace(".mdx", "")}
-    </p>
+    </div>
   );
 }
