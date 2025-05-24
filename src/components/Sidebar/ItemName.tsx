@@ -95,6 +95,7 @@ export default function ItemName({
         letterSpacing: depth ? undefined : 1.1,
         paddingTop: depth && !isFile ? 4 : 2,
         paddingBottom: depth && !isFile ? 4 : 2,
+        fontSize: depth === 1 ? 15 : depth === 2 ? 14 : undefined,
       }}
       onClick={handleClickItem}
     >
@@ -108,7 +109,7 @@ export default function ItemName({
           {
             hidden: isFile,
             "rotate-90": isOpen,
-          }
+          },
         )}
       >
         <ArrowRightIcon width={12} height={12} color="#666" />
