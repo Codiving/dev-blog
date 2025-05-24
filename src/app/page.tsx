@@ -1,3 +1,4 @@
+import { CategoryIcon } from "@/icons";
 import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,29 +57,17 @@ export default async function Home() {
                 <div className="relative flex flex-col justify-between gap-[8px]">
                   <h3 className="text-[22px] font-bold">{title}</h3>
                   <p className="line-clamp-4 summary text-[14px]">{summary}</p>
-                  <span
+                  <div
+                    className="flex items-center gap-4 text-[13px]"
                     style={{
-                      fontSize: 14,
-                      fontWeight: "bold",
-                      padding: "8px 6px",
-                      backgroundColor: "lightgray",
-                      width: "fit-content",
-                      borderRadius: 8,
-                      marginBottom: -2,
+                      color: "#67717A",
                     }}
                   >
-                    {subCategory}
-                  </span>
-                  <p
-                    style={{
-                      position: "absolute",
-                      right: 12,
-                      bottom: -3,
-                      fontSize: 14,
-                    }}
-                  >
-                    작성일 : {date}
-                  </p>
+                    <CategoryIcon className="mr-4" />
+                    <span className="text-[13px]">{subCategory}</span>
+                    <span className="text-[13px]">·</span>
+                    <span className="text-[13px]">{date}</span>
+                  </div>
                 </div>
               </Link>
             </li>

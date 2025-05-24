@@ -112,8 +112,13 @@ export default async function RootLayout({
               />
             </nav>
           </div>
-          <div id="contents" className="py-16 px-40 mx-auto">
-            <main style={{ maxWidth: 1200 }}>{children}</main>
+          <div id="contents">
+            <main
+              className="py-16 px-40"
+              style={{ maxWidth: 1200, margin: "0 auto" }}
+            >
+              {children}
+            </main>
             {/* <div>{children}</div> */}
           </div>
         </div>

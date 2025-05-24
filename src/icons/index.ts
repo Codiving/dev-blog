@@ -1,5 +1,6 @@
 export { default as ArrowRightIcon } from "./ArrowRightIcon";
 export { default as CalendarIcon } from "./CalendarIcon";
+export { default as CategoryIcon } from "./CategoryIcon";
 export { default as CollapseIcon } from "./CollapseIcon";
 export { default as CSSIcon } from "./CSSIcon";
 export { default as DarkIcon } from "./DarkIcon";
