@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --nav-height: 64px;
+  --layout-padding: 0px 32px;
+
+  --font-color-primary: #001e2b;
+
+  --sidebar-width: 272px;
+  --sidebar-bg-color: #f9fbfa;
+  --sidebar-border-default: #e1e2e4;
+  --sidebar-border-active: #c8c9cb;
+}
+
+#container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidenav contents";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+#header {
+  grid-area: header;
+  height: var(--nav-height);
+  padding: var(--layout-padding);
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+#sidenav {
+  grid-area: sidenav;
+  position: sticky;
+  top: 0;
+  height: calc(100dvh - var(--nav-height));
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg-color);
+  color: oklch(44.6% 0.03 256.802);
+}
+
+#contents {
+  grid-area: contents;
+}
