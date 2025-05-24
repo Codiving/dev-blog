@@ -1,5 +1,9 @@
 import { useCallback } from "react";
-import { COMMON } from "../../tailwind.config";
+const COMMON = {
+  progressbar: 2,
+  header: 60,
+  sidebar: 300,
+};
 
 /**
  * 특정 ID를 가진 요소로 부드럽게 스크롤을 이동시키는 커스텀 훅

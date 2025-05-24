@@ -24,7 +24,7 @@ export default function Sidebar({ children }: SidebarProps) {
   return (
     <div
       className={clsx(
-        "bg-gray-900 text-white flex flex-col flex-shrink-0 shadow-lg transition-all duration-500",
+        "bg-gray-900 text-white flex flex-col shrink-0 shadow-lg transition-all duration-500",
         { "w-0 p-0 overflow-hidden": !open },
         { "w-[280px] p-4 ": open }
       )}

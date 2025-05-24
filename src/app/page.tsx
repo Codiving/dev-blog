@@ -52,7 +52,7 @@ export default async function Home() {
                 src={url}
                 width={300}
                 height={150}
-                className="w-[200px] h-[120px] sm:w-[300px] sm:h-[150px] object-cover flex-shrink-0"
+                className="w-[200px] h-[120px] sm:w-sidebar sm:h-[150px] object-cover shrink-0"
               />
               <div className="relative flex flex-col justify-between gap-[8px]">
                 <h3 style={{ fontSize: 22, fontWeight: "bold" }}>{title}</h3>
