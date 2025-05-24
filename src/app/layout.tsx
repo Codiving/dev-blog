@@ -1,4 +1,4 @@
-import Sidebar from "@/components/Sidebar";
+import { Sidebar } from "@/components";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
 import Link from "next/link";

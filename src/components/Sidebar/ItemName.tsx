@@ -15,7 +15,7 @@ import {
   TypeScriptIcon,
 } from "@/icons";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type FolderIcon = {
   [key in FolderName]: (props: IconProps) => React.ReactNode;
@@ -63,44 +63,51 @@ export default function ItemName({
   depth,
 }: ItemNameProps) {
   const router = useRouter();
+  const filename = decodeURIComponent(usePathname().split("/").at(-1) || "");
+  const isSelected = filename === fileName;
+
+  const name = folderName ?? fileName?.replace(".mdx", "");
+
+  const handleClickItem = () => {
+    if (folderName) {
+      onToggleOpen();
+    } else {
+      if (path) {
+        router.push(`/${path}`);
+      }
+    }
+  };
 
   return (
     <div
-      className="flex items-center justify-between"
+      className="flex items-center justify-between cursor-pointer"
       style={{
         paddingLeft: depth * 10,
         borderLeft: depth
-          ? "1px solid var(--sidebar-border-default)"
+          ? isSelected
+            ? "1px solid var(--sidebar-border-active)"
+            : "1px solid var(--sidebar-border-default)"
           : undefined,
+        textDecoration: isSelected ? "underline" : undefined,
+        fontWeight: isSelected ? 500 : undefined,
         letterSpacing: depth ? undefined : 1.1,
         paddingTop: depth && !isFile ? 4 : 2,
         paddingBottom: depth && !isFile ? 4 : 2,
-        cursor: isFile ? undefined : "pointer",
       }}
-      onClick={() => {
-        if (folderName) {
-          onToggleOpen();
-        } else {
-          if (path) {
-            router.push(`/${path}`);
-          }
-        }
-      }}
+      onClick={handleClickItem}
     >
       <div className="flex items-center gap-[4px]">
         {folderName && FOLDER_ICON[folderName](FOLDER_ICON_STYLE)}
-        <p
-          className="flex items-center mt-[2px]"
-          {...(folderName ? { "data-folder": true } : { "data-file": true })}
-        >
-          {folderName ?? fileName?.replace(".mdx", "")}
-        </p>
+        <p className="flex items-center mt-[2px]">{name}</p>
       </div>
       <button
-        className={clsx("transition-transform duration-300 ease-in-out", {
-          hidden: isFile,
-          "rotate-90": isOpen,
-        })}
+        className={clsx(
+          "cursor-pointer transition-transform duration-300 ease-in-out",
+          {
+            hidden: isFile,
+            "rotate-90": isOpen,
+          }
+        )}
       >
         <ArrowRightIcon width={12} height={12} color="#666" />
       </button>

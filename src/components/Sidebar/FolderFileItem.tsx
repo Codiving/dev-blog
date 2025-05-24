@@ -1,20 +1,25 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import ItemName from "./FolderStructure/ItemName";
+import ItemName from "./ItemName";
 
 interface FolderFileItemProps {
   folder: Folder;
   depth: number;
 }
 
-function FolderFileItem({
-  folder: { folderName, fileName, children = [], path },
+export default function FolderFileItem({
+  folder: { folderName, fileName = "", children = [], path },
   depth,
 }: FolderFileItemProps) {
   const isFile = Boolean(fileName);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [, ...pathname] = decodeURIComponent(usePathname()).split("/");
+
+  const [isOpen, setIsOpen] = useState(
+    pathname.includes(folderName as string) || pathname.includes(fileName)
+  );
 
   const onToggleOpen = () => setIsOpen((prev) => !prev);
 
@@ -39,19 +44,5 @@ function FolderFileItem({
           <FolderFileItem folder={data} key={key} depth={depth + 1} />
         ))}
     </li>
-  );
-}
-
-type SidebarProps = {
-  folders: Folder[];
-};
-
-export default function Sidebar({ folders }: SidebarProps) {
-  return (
-    <ul className="p-[16px] flex flex-col">
-      {folders.map((folder, index) => (
-        <FolderFileItem key={index} folder={folder} depth={0} />
-      ))}
-    </ul>
   );
 }
