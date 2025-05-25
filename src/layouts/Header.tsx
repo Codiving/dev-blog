@@ -1,3 +1,4 @@
+import { HamburgerIcon } from "@/icons";
 import Link from "next/link";
 
 export default function Header() {
@@ -13,6 +14,9 @@ export default function Header() {
           </span>
         </div>
       </Link>
+      <div className="cursor-pointer md:hidden">
+        <HamburgerIcon width={60} height={60} />
+      </div>
     </header>
   );
 }
