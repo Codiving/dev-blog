@@ -91,6 +91,7 @@ export default function ItemName({
             : "1px solid var(--sidebar-border-default)"
           : undefined,
         textDecoration: isSelected ? "underline" : undefined,
+        textUnderlineOffset: 4,
         fontWeight: isSelected ? 500 : undefined,
         letterSpacing: depth ? undefined : 1.1,
         paddingTop: depth && !isFile ? 4 : 2,
