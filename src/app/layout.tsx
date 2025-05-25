@@ -36,7 +36,7 @@ function sortFolders(data: Folder[], parentFolderName = ""): Folder[] {
       if (folder.children && Array.isArray(folder.children)) {
         const sortedChildren = sortFolders(
           folder.children as Folder[],
-          folder.folderName
+          folder.folderName,
         );
         return { ...folder, children: sortedChildren };
       }
@@ -44,7 +44,7 @@ function sortFolders(data: Folder[], parentFolderName = ""): Folder[] {
     })
     .sort(
       (a, b) =>
-        getOrderIndex(a.folderName || "") - getOrderIndex(b.folderName || "")
+        getOrderIndex(a.folderName || "") - getOrderIndex(b.folderName || ""),
     );
 }
 
@@ -92,7 +92,10 @@ export default async function RootLayout({
               </div>
             </Link>
           </header>
-          <div id="sidenav">
+          <div
+            id="sidenav"
+            className="w-0 md:w-[var(--sidebar-width)] duration-300"
+          >
             <nav>
               <Sidebar
                 folders={[

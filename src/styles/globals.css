@@ -43,7 +43,6 @@
   position: sticky;
   top: var(--nav-height);
   height: calc(100dvh - var(--nav-height));
-  width: var(--sidebar-width);
   background-color: var(--sidebar-bg-color);
   color: oklch(44.6% 0.03 256.802);
   overflow-y: auto;
