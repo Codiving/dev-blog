@@ -7,6 +7,7 @@ export { default as DarkIcon } from "./DarkIcon";
 export { default as ErrorIcon } from "./ErrorIcon";
 export { default as ExpandIcon } from "./ExpandIcon";
 export { default as GitHubIcon } from "./GitHubIcon";
+export { default as HamburgerIcon } from "./HamburgerIcon";
 export { default as HTMLIcon } from "./HTMLIcon";
 export { default as JavaScriptIcon } from "./JavaScriptIcon";
 export { default as LightIcon } from "./LightIcon";
