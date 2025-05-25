@@ -1,9 +1,8 @@
-import { Sidebar } from "@/components";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
-import Link from "next/link";
 import "../styles/fonts.css";
 import "../styles/globals.css";
+import { Header, Sidebar } from "@/layouts";
 
 export const revalidate = 86400;
 
@@ -80,41 +79,8 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <div id="container">
-          <header id="header">
-            <Link href="/">
-              <div className="flex items-center gap-[8px]">
-                <span className="w-[40px] h-[40px] leading-[40px] text-center text-[24px] bg-black text-white rounded-[12px]">
-                  C
-                </span>
-                <span className="robotoMono text-[18px] font-bold italic">
-                  Codiving
-                </span>
-              </div>
-            </Link>
-          </header>
-          <div
-            id="sidenav"
-            className="w-0 md:w-[var(--sidebar-width)] duration-300"
-          >
-            <nav>
-              <Sidebar
-                folders={[
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                  ...folders,
-                ]}
-              />
-            </nav>
-          </div>
+          <Header />
+          <Sidebar folders={folders} />
           <div id="contents">
             <main
               className="py-16 px-40"
