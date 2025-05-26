@@ -6,10 +6,10 @@ import Link from "next/link";
 
 interface HeaderProps {
   open: boolean;
-  onOpenSidebar: () => void;
+  onToggleSidebar: () => void;
 }
 
-export default function Header({ open, onOpenSidebar }: HeaderProps) {
+export default function Header({ open, onToggleSidebar }: HeaderProps) {
   return (
     <header
       id="header"
@@ -27,7 +27,7 @@ export default function Header({ open, onOpenSidebar }: HeaderProps) {
           </span>
         </div>
       </Link>
-      <div className="cursor-pointer md:hidden" onClick={onOpenSidebar}>
+      <div className="cursor-pointer md:hidden" onClick={onToggleSidebar}>
         <HamburgerIcon width={60} height={60} />
       </div>
     </header>

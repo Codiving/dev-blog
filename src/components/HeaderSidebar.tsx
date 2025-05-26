@@ -13,7 +13,7 @@ export default function HeaderSidebar({ folders }: HeaderSidebarProps) {
 
   const isMD = useWidth();
 
-  const handleOpen = () => setOpen(true);
+  const toggleOpen = () => setOpen((prev) => !prev);
 
   const handleClose = () => setOpen(false);
 
@@ -33,7 +33,7 @@ export default function HeaderSidebar({ folders }: HeaderSidebarProps) {
 
   return (
     <>
-      <Header open={open} onOpenSidebar={handleOpen} />
+      <Header open={open} onToggleSidebar={toggleOpen} />
       <Sidebar folders={folders} open={open} onCloseSidebar={handleClose} />
     </>
   );
