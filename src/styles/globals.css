@@ -52,7 +52,6 @@
   grid-area: sidenav;
   position: fixed;
   top: var(--nav-height);
-  max-height: 50dvh;
   background-color: #fff;
   z-index: 20;
   overflow-y: auto;

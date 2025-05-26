@@ -23,8 +23,12 @@ export default function Sidebar({
         className={clsx("w-full md:w-[var(--sidebar-width)]", {
           "sidenav-top rounded-b-xl": isMD,
           "sidenav-left": !isMD,
-          hidden: isMD && !open,
+          "max-h-0": isMD && !open,
+          "max-h-[50dvh]": isMD && open,
         })}
+        style={{
+          transition: "max-height 0.3s ease",
+        }}
       >
         <nav>
           <SidebarComponent
