@@ -45,6 +45,7 @@ const FOLDER_ICON_STYLE = {
 
 interface ItemNameProps {
   onToggleOpen: () => void;
+  onCloseSidebar: () => void;
   isFile: boolean;
   isOpen: boolean;
   folderName?: FolderName;
@@ -55,6 +56,7 @@ interface ItemNameProps {
 
 export default function ItemName({
   onToggleOpen,
+  onCloseSidebar,
   isFile,
   isOpen,
   folderName,
@@ -76,6 +78,7 @@ export default function ItemName({
     } else {
       if (path) {
         router.push(`/${path}`);
+        onCloseSidebar();
       }
     }
   };

@@ -2,17 +2,19 @@ import FolderFileItem from "./FolderFileItem";
 
 type SidebarProps = {
   folders: Folder[];
+  onCloseSidebar: () => void;
 };
 
-export default function Sidebar({ folders }: SidebarProps) {
+export default function Sidebar({ folders, onCloseSidebar }: SidebarProps) {
   return (
-    <ul
-      id="sidebar"
-      className="p-[16px] pl-[var(--layout-padding)] flex flex-col w-0 md:w-full duration-300 opacity-0 
-md:opacity-100"
-    >
+    <ul className="p-[16px] pl-[var(--layout-padding)] flex flex-col">
       {folders.map((folder, index) => (
-        <FolderFileItem key={index} folder={folder} depth={0} />
+        <FolderFileItem
+          key={index}
+          folder={folder}
+          depth={0}
+          onCloseSidebar={onCloseSidebar}
+        />
       ))}
     </ul>
   );

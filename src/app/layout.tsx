@@ -1,8 +1,8 @@
+import HeaderSidebar from "@/components/HeaderSidebar";
 import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
 import "../styles/fonts.css";
 import "../styles/globals.css";
-import { Header, Sidebar } from "@/layouts";
 
 export const revalidate = 86400;
 
@@ -79,8 +79,7 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <div id="container">
-          <Header />
-          <Sidebar folders={folders} />
+          <HeaderSidebar folders={folders} />
           <div id="contents">
             <main
               className="py-16 px-40"

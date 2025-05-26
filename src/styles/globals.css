@@ -36,10 +36,9 @@
   justify-content: space-between;
   background-color: #fff;
   z-index: 1;
-  opacity: 0.9;
 }
 
-#sidenav {
+.sidenav-left {
   grid-area: sidenav;
   position: sticky;
   top: var(--nav-height);
@@ -47,6 +46,17 @@
   background-color: var(--sidebar-bg-color);
   color: oklch(44.6% 0.03 256.802);
   overflow-y: auto;
+}
+
+.sidenav-top {
+  grid-area: sidenav;
+  position: fixed;
+  top: var(--nav-height);
+  max-height: 50dvh;
+  background-color: #fff;
+  z-index: 20;
+  overflow-y: auto;
+  color: oklch(44.6% 0.03 256.802);
 }
 
 #contents {

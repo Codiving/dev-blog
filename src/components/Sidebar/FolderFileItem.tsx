@@ -7,11 +7,13 @@ import ItemName from "./ItemName";
 interface FolderFileItemProps {
   folder: Folder;
   depth: number;
+  onCloseSidebar: () => void;
 }
 
 export default function FolderFileItem({
   folder: { folderName, fileName = "", children = [], path },
   depth,
+  onCloseSidebar,
 }: FolderFileItemProps) {
   const isFile = Boolean(fileName);
 
@@ -20,7 +22,7 @@ export default function FolderFileItem({
   const [isOpen, setIsOpen] = useState(
     pathname.length === 3
       ? pathname.includes(folderName as string) || pathname.includes(fileName)
-      : false
+      : false,
   );
 
   const onToggleOpen = () => setIsOpen((prev) => !prev);
@@ -33,6 +35,7 @@ export default function FolderFileItem({
     >
       <ItemName
         onToggleOpen={onToggleOpen}
+        onCloseSidebar={onCloseSidebar}
         isFile={isFile}
         isOpen={isOpen}
         folderName={folderName}
@@ -43,7 +46,12 @@ export default function FolderFileItem({
 
       {isOpen &&
         children.map((data, key) => (
-          <FolderFileItem folder={data} key={key} depth={depth + 1} />
+          <FolderFileItem
+            folder={data}
+            key={key}
+            depth={depth + 1}
+            onCloseSidebar={onCloseSidebar}
+          />
         ))}
     </li>
   );
