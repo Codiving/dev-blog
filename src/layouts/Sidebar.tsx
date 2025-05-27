@@ -27,7 +27,7 @@ export default function Sidebar({
           "max-h-[50dvh]": isMD && open,
         })}
         style={{
-          transition: "max-height 0.3s ease",
+          transition: "max-height 0.5s ease",
         }}
       >
         <nav>
@@ -51,12 +51,18 @@ export default function Sidebar({
         </nav>
       </div>
 
-      {open && (
-        <div
-          onClick={onCloseSidebar}
-          className="top-[var(--nav-height)] fixed inset-0 md:w-0 md:h-0 md:hidden block w-full h-full bg-[rgba(0,0,0,0.7)] z-10"
-        />
-      )}
+      <div
+        onClick={onCloseSidebar}
+        className={clsx(
+          "top-[var(--nav-height)] opacity-0 fixed inset-0 md:w-0 md:h-0 md:hidden block w-full h-full bg-[rgba(0,0,0,0.7)] z-10",
+          {
+            "opacity-100": open,
+          },
+        )}
+        style={{
+          transition: "opacity 0.5s ease",
+        }}
+      />
     </>
   );
 }
