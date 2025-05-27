@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * @returns {string | null} 뷰포트 상단에 가까운 제목의 텍스트 내용. 제목이 없으면 `null` 반환
  */
 
-const OFFSET = 152;
+const OFFSET = 80;
 const useClosestHeading = () => {
   const [contentHeading, setContentHeading] = useState<string | null>(null);
 
@@ -16,7 +16,7 @@ const useClosestHeading = () => {
       if (!post) return;
 
       const headings: HTMLHeadingElement[] = Array.from(
-        post.querySelectorAll("h1, h2, h3, h4, h5, h6")
+        post.querySelectorAll("h1, h2, h3, h4, h5, h6"),
       );
 
       let closest: HTMLHeadingElement | null = null;

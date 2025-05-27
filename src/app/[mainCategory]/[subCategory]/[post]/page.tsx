@@ -36,7 +36,7 @@ export async function generateMetadata({
   const { mainCategory, subCategory, post } = await params;
 
   const result = await getPostByFileName(
-    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/"))
+    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/")),
   );
 
   if (!result) {
@@ -49,7 +49,7 @@ export async function generateMetadata({
   const url = `https://raw.githubusercontent.com/${process.env.USER_NAME}/${
     process.env.REPOSITORY_NAME
   }/${process.env.BRANCH_NAME}/${decodeURIComponent(
-    [mainCategory, subCategory, post].join("/") + "/" + thumbnail
+    [mainCategory, subCategory, post].join("/") + "/" + thumbnail,
   )}`;
 
   const metadata: Metadata = {
@@ -62,7 +62,7 @@ export async function generateMetadata({
       title,
       description,
       url: `https://www.tech.codiving.kr/${decodeURIComponent(
-        [mainCategory, subCategory, post].join("/")
+        [mainCategory, subCategory, post].join("/"),
       )}`,
       type: "article",
       images: [
@@ -82,7 +82,7 @@ export default async function Page({ params }: PageProps) {
   const { mainCategory, subCategory, post } = await params;
 
   const result = await getPostByFileName(
-    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/"))
+    decodeURIComponent([mainCategory, subCategory, post, "post.mdx"].join("/")),
   );
 
   if (!result) return null;
@@ -90,7 +90,7 @@ export default async function Page({ params }: PageProps) {
   const { content } = result;
 
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-32">
       <div className="flex flex-col">
         <div className="w-full pb-10 mb-10 border-b border-[#d0d5dd]" id="post">
           {content}
