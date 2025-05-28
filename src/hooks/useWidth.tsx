@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function useWidth(breakpoint = 768) {
+function useWidth(breakpoint = 1027) {
   const [isBelowBreakpoint, setIsBelowBreakpoint] = useState(false);
 
   useEffect(() => {
