@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./spacing.css";
 @import "./code.css";
+@import "./post.css";
 
 @theme {
   --nav-height: 64px;
