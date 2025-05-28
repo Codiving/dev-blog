@@ -121,4 +121,7 @@
   --spacing-118: 118px;
   --spacing-119: 119px;
   --spacing-120: 120px;
+
+  --breakpoint-lg: 1309px;
+  --breakpoint-md: 1027px;
 }

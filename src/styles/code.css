@@ -1,0 +1,74 @@
+#post figure[data-rehype-pretty-code-figure] {
+  background-color: #030713;
+  padding: 4px 12px;
+  border-radius: 8px;
+  position: relative;
+  max-width: calc(100dvw - 80px);
+}
+
+#post figcaption {
+  color: oklch(70.7% 0.022 261.325);
+  font-size: 12px;
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+
+#post pre {
+  padding: 20px 14px;
+  border-radius: 8px;
+  background-color: #232731;
+  color: rgb(225, 228, 232);
+  border: 1px solid #353333;
+}
+
+#post code * {
+  font-family: "RobotoMono", monospace;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+#post [data-highlighted-line-id="minus"] {
+  background-color: rgba(255, 0, 0, 0.2);
+  text-decoration: line-through;
+}
+
+#post [data-highlighted-line-id="plus"] {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+#post pre {
+  overflow: auto;
+}
+
+/* 코드 라인 */
+#post pre [data-line] {
+  padding: 0.03rem;
+  margin-bottom: 1.5px;
+}
+
+#post pre code[data-line-numbers] {
+  counter-reset: line;
+}
+
+#post pre code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 0.75rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: gray;
+}
+
+#post pre code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  /* width: 1.25rem; */
+}
+
+#post pre code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  /* width: 1.75rem; */
+}
+
+#post pre code[data-line-numbers-max-digits="4"] > [data-line]::before {
+  /* width: 2.25rem; */
+}
