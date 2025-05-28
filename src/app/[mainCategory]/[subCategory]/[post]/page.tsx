@@ -7,7 +7,7 @@ interface PageProps {
   params: Promise<{ mainCategory: string; subCategory: string; post: string }>;
 }
 
-export const revalidate = 10;
+export const revalidate = 86400;
 
 /**
  * Q. 왜 2번쨰 index는 사용하지 않나요?

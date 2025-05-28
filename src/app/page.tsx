@@ -3,7 +3,7 @@ import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
 import Image from "next/image";
 import Link from "next/link";
 
-export const revalidate = 10;
+export const revalidate = 86400;
 
 export default async function Home() {
   const posts = await fetchRepoFileTree();
