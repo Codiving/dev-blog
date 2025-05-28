@@ -97,9 +97,9 @@ export default function ItemName({
         textUnderlineOffset: 4,
         fontWeight: isSelected ? 500 : undefined,
         letterSpacing: depth ? undefined : 1.1,
-        paddingTop: depth && !isFile ? 4 : 2,
+        paddingTop: isFile ? 4 : depth && !isFile ? 4 : 8,
         paddingBottom: depth && !isFile ? 4 : 2,
-        fontSize: depth === 1 ? 15 : depth === 2 ? 14 : undefined,
+        fontSize: depth === 1 || depth === 2 ? 14 : 15,
       }}
       onClick={handleClickItem}
     >
