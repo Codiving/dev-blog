@@ -91,8 +91,8 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <div className="flex gap-32">
-      <div className="flex flex-col">
-        <div className="w-full pb-10 mb-10 border-b border-[#d0d5dd]" id="post">
+      <div className="flex-1">
+        <div id="post" className="pb-10 mb-10 border-b border-[#d0d5dd]">
           {content}
         </div>
         <Comments />
