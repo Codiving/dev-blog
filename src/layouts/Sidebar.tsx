@@ -54,7 +54,7 @@ export default function Sidebar({
       <div
         onClick={onCloseSidebar}
         className={clsx(
-          "top-[var(--nav-height)] opacity-0 fixed inset-0 md:w-0 md:h-0 md:hidden block w-full h-full bg-[rgba(0,0,0,0.7)] z-10",
+          "top-[var(--nav-height)] opacity-0 fixed inset-0 md:w-0 md:h-0 md:hidden block w-full h-full bg-[rgba(0,0,0,0.7)] z-10 pointer-events-none",
           {
             "opacity-100": open,
           },
