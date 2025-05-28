@@ -1,0 +1,48 @@
+```js title="HTML"
+import { flatten, unflatten } from "flat";
+
+const convertDateMiddleware = new ApolloLink((operation, forward) => {
+  if (DATE_OPERATION_LIST.includes(operation.operationName)) {
+    return forward(operation).map((response) => {
+      if (response.data) {
+        const flattenData: Record<string, any> = flatten(response.data);
+        const values = DATE_CONVERT_QUERY[operation.operationName];
+      }
+    });
+  }
+  return forward(operation);
+});
+```
+
+```tsx title="HTML"
+import { flatten, unflatten } from "flat";
+
+const convertDateMiddleware = new ApolloLink((operation, forward) => {
+  if (DATE_OPERATION_LIST.includes(operation.operationName)) {
+    return forward(operation).map((response) => {
+      if (response.data) {
+        const flattenData: Record<string, any> = flatten(response.data);
+        const values = DATE_CONVERT_QUERY[operation.operationName];
+      }
+    });
+  }
+  return forward(operation);
+});
+```
+
+```js title="TSX" showLineNumbers {2}#minus {3}#plus
+const A = "folder";
+const A = "folder";
+const A = "folder";
+const A = "folder";
+const A = "folder";
+const A = "folder";
+```
+
+```js title="JSX" /age/#v /name/#v /setAge/#s /setName/#s /50/#i /"Taylor"/#i
+const [age, setAge] = useState(50);
+const [name, setName] = useState("Taylor");
+```
+
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 0 5px #0000000d;
+    border: 1px solid lightgray;
