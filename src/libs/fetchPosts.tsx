@@ -1,4 +1,4 @@
-import { Figcaption, Li, Link, Ul } from "@/components";
+import { Li, Link, Pre, Ul } from "@/components";
 import { compileMDX } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -67,7 +67,7 @@ export async function buildFolderStructure(): Promise<Folder[]> {
 
     parts.forEach((part, index) => {
       let existingFolder = currentLevel.find(
-        (item) => item.folderName === part
+        (item) => item.folderName === part,
       );
 
       if (!existingFolder) {
@@ -97,7 +97,7 @@ export async function buildFolderStructure(): Promise<Folder[]> {
 
   return folderStructure.sort(
     (a, b) =>
-      FOLDER_ORDER.indexOf(a.folderName!) - FOLDER_ORDER.indexOf(b.folderName!)
+      FOLDER_ORDER.indexOf(a.folderName!) - FOLDER_ORDER.indexOf(b.folderName!),
   );
 }
 
@@ -124,7 +124,7 @@ export async function getPostByFileName(fileName: string) {
       ul: Ul,
       li: Li,
       Image,
-      figcaption: Figcaption,
+      pre: Pre,
     },
     options: {
       parseFrontmatter: true,
