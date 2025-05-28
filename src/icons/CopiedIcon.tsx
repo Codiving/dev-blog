@@ -3,10 +3,10 @@ export default function CopiedIcon() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
-      stroke="rgba(128,128,128,1)"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       viewBox="0 0 24 24"
     >
       <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
