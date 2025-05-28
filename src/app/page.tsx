@@ -3,6 +3,8 @@ import { fetchRepoFileTree, getPostByFileName } from "@/libs/fetchPosts";
 import Image from "next/image";
 import Link from "next/link";
 
+export const revalidate = 10;
+
 export default async function Home() {
   const posts = await fetchRepoFileTree();
 
@@ -14,7 +16,7 @@ export default async function Home() {
       .map(async ({ path }) => {
         const [mainCategory, subCategory, postName] = path.split("/");
         const fullPath = decodeURIComponent(
-          [mainCategory, subCategory, postName, `post.mdx`].join("/")
+          [mainCategory, subCategory, postName, `post.mdx`].join("/"),
         );
         const postInfos = await getPostByFileName(fullPath);
 
@@ -22,7 +24,7 @@ export default async function Home() {
           throw new Error("포스트 없음");
         }
         return { ...postInfos, mainCategory, subCategory, postName };
-      })
+      }),
   );
 
   return (
@@ -72,7 +74,7 @@ export default async function Home() {
               </Link>
             </li>
           );
-        }
+        },
       )}
     </ul>
   );
