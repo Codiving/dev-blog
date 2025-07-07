@@ -6,12 +6,7 @@ type LiProps = {
 };
 
 const Li = ({ children, className = "" }: LiProps) => {
-  return (
-    <li className={`list-none ${className}`}>
-      <p className="inline-block mr-2 text-[12px]">●</p>
-      {children}
-    </li>
-  );
+  return <li className={`list-none ${className}`}>{children}</li>;
 };
 
 export default Li;
