@@ -34,7 +34,7 @@ export default function Pre(props: PreProps) {
       {props.children}
       <div
         onClick={copyCode}
-        className="absolute right-25 top-50 w-25 h-25 rounded-[4px] cursor-pointer"
+        className="absolute right-25 top-40 w-25 h-25 rounded-[4px] cursor-pointer"
       >
         {copied ? <CopiedIcon /> : <CopyIcon />}
       </div>
