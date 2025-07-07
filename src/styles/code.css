@@ -4,6 +4,7 @@
   border-radius: 8px;
   position: relative;
   max-width: calc(100dvw - 80px);
+  margin-bottom: 12px;
 }
 
 /* caption 없이 title만 있는 경우의 title */
