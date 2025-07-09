@@ -63,7 +63,3 @@
 #contents {
   grid-area: contents;
 }
-
-strong {
-  font-weight: 600;
-}
