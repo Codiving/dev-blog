@@ -31,23 +31,7 @@ export default function Sidebar({
         }}
       >
         <nav>
-          <SidebarComponent
-            folders={[
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-              ...folders,
-            ]}
-            onCloseSidebar={onCloseSidebar}
-          />
+          <SidebarComponent folders={folders} onCloseSidebar={onCloseSidebar} />
         </nav>
       </div>
 
