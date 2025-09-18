@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://www.tech.codiving.kr</loc><lastmod>2025-07-09T10:27:07.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.tech.codiving.kr/프로그래밍/GraphQL/GraphQL에서 Date 타입 다루기</loc><lastmod>2025-07-09T10:27:07.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.tech.codiving.kr/프로그래밍/Jest/Jest에서 localStorage 사용하기</loc><lastmod>2025-07-09T10:27:07.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.tech.codiving.kr/프로그래밍/Next/Next.js에서 redirect 설정하기</loc><lastmod>2025-07-09T10:27:07.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.tech.codiving.kr/프로그래밍/Next/Next.js에서 환경변수 다루기</loc><lastmod>2025-07-09T10:27:07.513Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr/프로그래밍/MinIO/MinIO 버킷 내 특정 객체 Public으로 설정하기</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr/프로그래밍/GraphQL/GraphQL에서 Date 타입 다루기</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr/프로그래밍/Jest/Jest에서 localStorage 사용하기</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr/프로그래밍/Next/Next.js에서 redirect 설정하기</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://codiving.kr/프로그래밍/Next/Next.js에서 환경변수 다루기</loc><lastmod>2025-09-18T10:52:40.612Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
