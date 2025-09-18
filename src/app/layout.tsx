@@ -3,6 +3,7 @@ import { buildFolderStructure } from "@/libs/fetchPosts";
 import type { Metadata } from "next";
 import "../styles/fonts.css";
 import "../styles/globals.css";
+import Head from "next/head";
 
 export const revalidate = 86400;
 
@@ -78,6 +79,13 @@ export default async function RootLayout({
 
   return (
     <html lang="ko">
+      <Head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7944999862877764"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
       <body>
         <div id="container">
           <HeaderSidebar folders={folders} />
