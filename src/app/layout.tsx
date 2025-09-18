@@ -80,6 +80,7 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <Head>
+        {/* 구글 애드센스 */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7944999862877764"
