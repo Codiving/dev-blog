@@ -1,9 +1,3 @@
-# *
 User-agent: *
 Allow: /
-
-# Host
-Host: https://www.tech.codiving.kr
-
-# Sitemaps
-Sitemap: https://www.tech.codiving.kr/sitemap.xml
+Sitemap: https://codiving.kr/sitemap.xml
