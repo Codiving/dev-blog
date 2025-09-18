@@ -14,6 +14,7 @@ import {
   ReactIcon,
   TypeScriptIcon,
 } from "@/icons";
+import MinIOIcon from "@/icons/MinIOIcon";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -34,6 +35,7 @@ const FOLDER_ICON: FolderIcon = {
   Next: (props: IconProps) => <NextJSIcon {...props} />,
   React: (props: IconProps) => <ReactIcon {...props} />,
   GraphQL: (props: IconProps) => <ReactIcon {...props} />,
+  MinIO: (props: IconProps) => <MinIOIcon {...props} />,
   "2025": (props: IconProps) => <CalendarIcon {...props} />,
 };
 

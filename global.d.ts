@@ -21,7 +21,8 @@ declare global {
     | "Next"
     | "React"
     | "GraphQL"
-    | "2025";
+    | "2025"
+    | "MinIO";
 
   interface Folder {
     folderName?: FolderName;
