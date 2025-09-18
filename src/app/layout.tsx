@@ -18,6 +18,7 @@ const sortOrder: Record<string, string[]> = {
     "Next",
     "GraphQL",
     "Jest",
+    "MinIO",
   ],
   에러: ["GitHub"],
 };
