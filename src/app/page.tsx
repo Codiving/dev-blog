@@ -10,21 +10,27 @@ export default async function Home() {
 
   if (!posts) return [];
 
-  const results = await Promise.all(
-    posts.tree
-      .filter((post) => post.path.endsWith(".mdx"))
-      .map(async ({ path }) => {
-        const [mainCategory, subCategory, postName] = path.split("/");
-        const fullPath = decodeURIComponent(
-          [mainCategory, subCategory, postName, `post.mdx`].join("/"),
-        );
-        const postInfos = await getPostByFileName(fullPath);
+  const results = (
+    await Promise.all(
+      posts.tree
+        .filter((post) => post.path.endsWith(".mdx"))
+        .map(async ({ path }) => {
+          const [mainCategory, subCategory, postName] = path.split("/");
+          const fullPath = decodeURIComponent(
+            [mainCategory, subCategory, postName, `post.mdx`].join("/"),
+          );
+          const postInfos = await getPostByFileName(fullPath);
 
-        if (!postInfos) {
-          throw new Error("포스트 없음");
-        }
-        return { ...postInfos, mainCategory, subCategory, postName };
-      }),
+          if (!postInfos) {
+            throw new Error("포스트 없음");
+          }
+          return { ...postInfos, mainCategory, subCategory, postName };
+        }),
+    )
+  ).sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime(),
   );
 
   return (
